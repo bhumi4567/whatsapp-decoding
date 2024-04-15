@@ -1,4 +1,9 @@
-import base64
+return txt[:-lastbyte]
+	else:
+		return txt
+
+iv = Random.new().read( AES.block_size )
+encoder = PKCS7Encoder()import base64
 from Crypto.Cipher import AES
 from Crypto import Random
 from pkcs7 import PKCS7Encoder
@@ -17,12 +22,7 @@ def cleanpkcs7(txt):
 		if ord(txt[-(i+1)]) != lastbyte:
 			found = False
 	if found:
-		return txt[:-lastbyte]
-	else:
-		return txt
-
-iv = Random.new().read( AES.block_size )
-encoder = PKCS7Encoder()
+		
 
 def loadkeys(fname):
 	j = json.load(open(fname, "r"))
